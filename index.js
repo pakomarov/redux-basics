@@ -10,11 +10,21 @@ function buyCake() {
   };
 }
 
+const BUY_ICE_CREAM = 'BUY_ICE_CREAM';
+
+function buyIceCream() {
+  return {
+    type: BUY_ICE_CREAM,
+    info: 'Second redux action',
+  };
+}
+
 
 // (previousState, action) => newState
 
 const initialState = {
-  cakeCount: 10
+  cakeCount: 10,
+  iceCreamCount: 20,
 };
 
 const reducer = (state = initialState, action) => {
@@ -23,6 +33,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         cakeCount: state.cakeCount - 1,
+      };
+    case BUY_ICE_CREAM:
+      return {
+        ...state,
+        iceCreamCount: state.iceCreamCount - 1,
       };
     default:
       return state;
@@ -42,6 +57,8 @@ const unsubscribe = store.subscribe(() => console.log('Updated state', store.get
 store.dispatch(buyCake());
 store.dispatch(buyCake());
 store.dispatch(buyCake());
+store.dispatch(buyIceCream());
+store.dispatch(buyIceCream());
 
 // unsubscribe
 unsubscribe();
