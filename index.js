@@ -1,5 +1,5 @@
-const {createStore, combineReducers, applyMiddleware} = require('redux');
-const {createLogger} = require('redux-logger');
+const { createStore, combineReducers, applyMiddleware } = require('redux');
+const { createLogger } = require('redux-logger');
 const logger = createLogger();
 
 const BUY_CAKE = 'BUY_CAKE';
